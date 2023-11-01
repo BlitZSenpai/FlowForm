@@ -2,6 +2,9 @@ import { GetFormStats } from "@/actions/form";
 import { StatsCard } from "@/components/statscard";
 import { Suspense } from "react";
 import { LuView } from "react-icons/lu";
+import { FaWpforms } from "react-icons/fa";
+import { HiCursorClick } from "react-icons/hi";
+import { TbArrowBounce } from "react-icons/tb";
 
 export default function Home() {
   return (
@@ -38,7 +41,7 @@ function StatsCards(props: StatsCardsProps) {
       />
       <StatsCard
         title="Total submissions"
-        icon={<LuView className="text-yellow-600" />}
+        icon={<FaWpforms className="text-yellow-600" />}
         helperText="All time form submissions"
         value={data?.visits.toLocaleString() || ""}
         loading={loading}
@@ -46,7 +49,7 @@ function StatsCards(props: StatsCardsProps) {
       />
       <StatsCard
         title="Submission rate"
-        icon={<LuView className="text-green-600" />}
+        icon={<HiCursorClick className="text-green-600" />}
         helperText="Visits that result in form submission"
         value={data?.visits.toLocaleString() || ""}
         loading={loading}
@@ -54,7 +57,7 @@ function StatsCards(props: StatsCardsProps) {
       />
       <StatsCard
         title="Bounce rate"
-        icon={<LuView className="text-red-600" />}
+        icon={<TbArrowBounce className="text-red-600" />}
         helperText="Visits that leave without interacting"
         value={data?.visits.toLocaleString() || ""}
         loading={loading}
