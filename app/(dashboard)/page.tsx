@@ -52,6 +52,14 @@ function StatsCards(props: StatsCardsProps) {
         loading={loading}
         className="shadow-md shadow-green-600"
       />
+      <StatsCard
+        title="Bounce rate"
+        icon={<LuView className="text-red-600" />}
+        helperText="Visits that leave without interacting"
+        value={data?.visits.toLocaleString() || ""}
+        loading={loading}
+        className="shadow-md shadow-red-600"
+      />
     </div>
   );
 }
