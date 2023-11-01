@@ -36,6 +36,14 @@ function StatsCards(props: StatsCardsProps) {
         loading={loading}
         className="shadow-md shadow-blue-600"
       />
+      <StatsCard
+        title="Total submissions"
+        icon={<LuView className="text-yellow-600" />}
+        helperText="All time form submissions"
+        value={data?.visits.toLocaleString() || ""}
+        loading={loading}
+        className="shadow-md shadow-yellow-600"
+      />
     </div>
   );
 }
