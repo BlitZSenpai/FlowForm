@@ -6,7 +6,7 @@ import { LuView } from "react-icons/lu";
 export default function Home() {
   return (
     <div className="container pt-4">
-      <Suspense>
+      <Suspense fallback={<StatsCards loading={true} />}>
         <CardStatsWrapper />
       </Suspense>
     </div>
@@ -19,7 +19,7 @@ async function CardStatsWrapper() {
 }
 
 interface StatsCardsProps {
-  data: Awaited<ReturnType<typeof GetFormStats>>;
+  data?: Awaited<ReturnType<typeof GetFormStats>>;
   loading: boolean;
 }
 
@@ -32,7 +32,7 @@ function StatsCards(props: StatsCardsProps) {
         title="Total visits"
         icon={<LuView className="text-blue-600" />}
         helperText="All time form visits"
-        value={data.visits.toLocaleString()}
+        value={data?.visits.toLocaleString() || ""}
         loading={loading}
         className="shadow-md shadow-blue-600"
       />

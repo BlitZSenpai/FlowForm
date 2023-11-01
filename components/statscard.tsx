@@ -14,18 +14,20 @@ type StatsCardProps = {
 export const StatsCard = ({ title, value, icon, helperText, loading, className }: StatsCardProps) => {
   return (
     <Card className={className}>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+      <CardHeader className="flex flex-row items-center justify-between pb-2">
+        <CardTitle className="text-sm text-muted-foreground font-medium">{title}</CardTitle>
         {icon}
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">
           {loading && (
             <Skeleton>
-              <span>0</span>
+              <span className="opacity-0">0</span>
             </Skeleton>
           )}
+          {!loading && value}
         </div>
+        <p className="text-xs text-muted-foreground pt-1">{helperText}</p>
       </CardContent>
     </Card>
   );
